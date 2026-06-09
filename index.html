@@ -5,7 +5,6 @@
     <title>หน้าแนะนำตัวของพิมพ์ลภัส</title>
     <style>
         body {
-            /* โทนสีพาสเทล สบายตาและดูเป็นระเบียบ */
             background: linear-gradient(135deg, #fdfcf0 0%, #e0f7fa 50%, #fce4ec 100%);
             min-height: 100vh;
             display: flex;
@@ -14,47 +13,48 @@
             margin: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #455a64;
-            padding: 10px;
+            padding: 20px; /* เพิ่ม Padding รอบนอก */
         }
         .card {
             background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-radius: 25px; /* ปรับมุมให้โค้งมนขึ้น */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); /* เพิ่มเงาให้ดูมีมิติ */
             width: 100%;
-            max-width: 400px;
-            padding: 25px;
+            max-width: 450px; /* ขยายความกว้างการ์ด */
+            padding: 40px 30px; /* ปรับ Padding ด้านบนล่าง/ซ้ายขวา */
             text-align: center;
             box-sizing: border-box;
         }
         .card-header {
-            height: 100px;
+            height: 120px; /* ปรับความสูงส่วนหัวให้สมดุล */
             background: linear-gradient(45deg, #cfd8dc, #b2ebf2, #f8bbd0);
-            border-radius: 15px;
-            margin-bottom: 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
         }
         h1 { 
             color: #0277bd; 
-            font-size: 22px; 
-            margin-bottom: 15px; 
+            font-size: 26px; /* ปรับขนาดตัวอักษรให้เด่นขึ้น */
+            margin-bottom: 20px; 
         }
         p { 
-            font-size: 16px; 
-            line-height: 1.6; 
-            margin: 10px 0; 
+            font-size: 17px; 
+            line-height: 1.7; 
+            margin: 12px 0; 
         }
         .btn {
             display: block;
             background: #0288d1;
             color: white;
-            padding: 15px;
+            padding: 18px; /* ปรับขนาดปุ่มให้กดง่ายขึ้น */
             text-decoration: none;
-            border-radius: 30px;
-            margin-top: 25px;
+            border-radius: 40px;
+            margin-top: 30px;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: transform 0.2s, background 0.3s;
         }
         .btn:hover {
             background: #01579b;
+            transform: scale(1.02); /* เพิ่มลูกเล่นตอนชี้เมาส์ */
         }
     </style>
 </head>
