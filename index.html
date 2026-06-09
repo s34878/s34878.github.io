@@ -43,6 +43,18 @@
             transform: translateX(-50%);
             background: url('myphoto.jpeg') center/cover no-repeat;
         }
+
+        /* เพิ่มรูปภาพเล็ก */
+        .small-photo {
+            width: 180px;
+            max-width: 100%;
+            border-radius: 12px;
+            margin: 20px auto;
+            display: block;
+            border: 3px solid #f3e5f5;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
         h1 { 
             color: #7b1fa2; 
             font-size: 22px; 
@@ -80,13 +92,25 @@
 
     <div class="card">
         <div class="card-header"></div>
+
         <!-- รูปโปรไฟล์ -->
         <div class="profile-pic"></div>
+
         <h1>ยินดีต้อนรับสู่โปรไฟล์ของพิมพ์ลภัส (Pimrapat)</h1>
+
         <p>🎓 ขณะนี้กำลังศึกษาและสนใจด้าน <strong>วิศวกรรมศาสตร์</strong></p>
+
         <div class="divider"></div>
+
+        <!-- รูปภาพที่เพิ่ม -->
+        <img
+            src="https://i.postimg.cc/GtjtDrFK/dawn-hold-(2).jpg"
+            alt="รูปภาพประกอบ"
+            class="small-photo"
+        >
+
         <p>🌐 นี่คือเว็บไซต์แรกของดิฉันที่โฮสต์บน <strong>GitHub Pages</strong> ค่ะ</p>
-        
+
         <a href="portfolio.html" class="btn">ดูแฟ้มสะสมงานทางวิศวกรรม</a>
     </div>
 
