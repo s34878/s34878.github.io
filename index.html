@@ -11,37 +11,24 @@
             align-items: center;
             justify-content: center;
             margin: 0;
-            font-family: 'Segoe UI', sans-serif;
+            font-family: sans-serif;
             padding: 10px;
         }
         .card {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             width: 100%;
-            max-width: 420px;
-            padding: 25px;
+            max-width: 400px;
+            padding: 20px;
             text-align: center;
             box-sizing: border-box;
-            position: relative;
         }
         .card-header {
-            height: 120px;
+            height: 100px;
             background: linear-gradient(90deg, #ffecd2 0%, #fcb69f 100%);
             border-radius: 15px;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 4px solid white;
-            position: absolute;
-            top: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            object-fit: cover;
+            margin-bottom: 25px;
         }
         h1 { 
             color: #7b1fa2; 
@@ -50,29 +37,19 @@
         }
         p { 
             font-size: 16px; 
-            line-height: 1.6; 
+            line-height: 1.5; 
             margin: 15px 0; 
-            color: #444;
-        }
-        .divider {
-            height: 2px;
-            background: linear-gradient(to right, #f48fb1, #ce93d8, #64b5f6);
-            margin: 20px 0;
-            border-radius: 2px;
+            color: #555;
         }
         .btn {
-            display: inline-block;
+            display: block;
             background: #7b1fa2; 
             color: white;
-            padding: 12px 25px;
+            padding: 15px;
             text-decoration: none;
             border-radius: 30px;
             margin-top: 25px;
             font-weight: bold;
-            transition: background 0.3s ease;
-        }
-        .btn:hover {
-            background: #9c27b0;
         }
     </style>
 </head>
@@ -80,7 +57,12 @@
 
     <div class="card">
         <div class="card-header"></div>
-        <!-- ใช้ <img> สำหรับรูปโปรไฟล์ -->
-        <img src="https://i.postimg.cc/GtjtDrFK/dawn-hold-(2).jpg" alt="โปรไฟล์" class="profile-pic">
+        <h1>ยินดีต้อนรับสู่โปรไฟล์ของพิมพ์ลภัส (Pimrapat)</h1>
+        <p>ขณะนี้กำลังศึกษาและสนใจด้าน<strong>วิศวกรรมศาสตร์</strong></p>
+        <p>นี่คือเว็บไซต์แรกของดิฉันที่โฮสต์บน GitHub Pagesค่ะ</p>
         
-        <h1>ยินดีต้อนรับสู่โปรไฟล์ของพิม
+        <a href="portfolio.html" class="btn" aria-label="ดูแฟ้มสะสมงานทางวิศวกรรม">ดูแฟ้มสะสมงานทางวิศวกรรม</a>
+    </div>
+
+</body>
+</html>
