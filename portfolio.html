@@ -4,51 +4,162 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>แฟ้มสะสมงานของพิมพ์ลภัส</title>
+
     <style>
-        body { 
-            font-family: sans-serif; 
-            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 50%, #fbc2eb 100%); 
-            background-attachment: fixed; 
-            text-align: center; 
-            padding: 30px; 
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 30px;
             min-height: 100vh;
+            text-align: center;
+            color: #243447;
+
+            /* พื้นหลังโทนวิศวะ + น่ารัก */
+            background-color: #eef6ff;
+            background-image:
+                linear-gradient(rgba(52, 152, 219, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(52, 152, 219, 0.08) 1px, transparent 1px);
+            background-size: 25px 25px;
         }
 
-        .container { max-width: 800px; margin: 0 auto; }
-        
-        .profile-img { 
-            width: 150px; 
-            height: 150px; 
-            border-radius: 50%; 
-            object-fit: cover; 
-            margin-bottom: 20px; 
-            border: 3px solid white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .project-card { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
-        .btn { display: inline-block; background: #2c3e50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+        /* ส่วนโปรไฟล์ */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        h1::after {
+            content: " ⚙️";
+            font-size: 24px;
+        }
+
+        .intro {
+            color: #5d7184;
+            margin-bottom: 30px;
+        }
+
+        /* การ์ดผลงาน */
+        .project-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 12px;
+
+            /* ขอบสไตล์แบบงานวิศวะ */
+            border-left: 5px solid #3498db;
+
+            box-shadow: 0 4px 10px rgba(44, 62, 80, 0.1);
+            text-align: left;
+            transition: 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(44, 62, 80, 0.15);
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+
+        .project-card h3::before {
+            content: "⚙ ";
+            color: #3498db;
+        }
+
+        .project-card p {
+            color: #667788;
+            line-height: 1.7;
+        }
+
+        /* ปุ่ม */
+        .btn {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 10px 22px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+        }
+
+        /* ตกแต่งเล็ก ๆ ด้านล่าง */
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .heart {
+            color: #e88bb7;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="container">
+
         <img src="my-picture.jpg" alt="พิมพ์ลภัส" class="profile-img">
-        
+
         <h1>📁 แฟ้มสะสมงานของพิมพ์ลภัส</h1>
-        <p>นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจค่ะ</p>
+
+        <p class="intro">
+            พื้นที่รวบรวมผลงาน กิจกรรม และสิ่งที่ได้เรียนรู้
+            <br>
+            ⚙️ Engineering Mindset + 💗 Creativity
+        </p>
 
         <div class="project-card">
             <h3>1. โครงงาน/ชิ้นงานวิทยาศาสตร์คำนวณ</h3>
-            <p>รายละเอียดชิ้นงาน: เขียนอธิบายสั้นๆ ว่าทำอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง</p>
+            <p>
+                รายละเอียดชิ้นงาน: เขียนอธิบายสั้น ๆ ว่าทำอะไร
+                ได้เรียนรู้อะไร และนำความรู้ด้านวิทยาศาสตร์
+                หรือการคำนวณมาใช้กับงานอย่างไร
+            </p>
         </div>
 
         <div class="project-card">
             <h3>2. กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
-            <p>รายละเอียดชิ้นงาน: เข้าร่วมการประกวด หรือกิจกรรมของโรงเรียน...</p>
+            <p>
+                รายละเอียดชิ้นงาน: เข้าร่วมการประกวด
+                กิจกรรมของโรงเรียน หรือกิจกรรมที่ช่วยพัฒนาทักษะ
+                และประสบการณ์
+            </p>
         </div>
 
         <a href="index.html" class="btn">🏠 กลับหน้าแรก</a>
+
+        <div class="footer">
+            Made with <span class="heart">♥</span> & ⚙️
+        </div>
+
     </div>
 
 </body>
