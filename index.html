@@ -74,7 +74,7 @@
             100% { transform: translate(-30px, 30px) scale(0.95); }
         }
 
-        /* --- เอฟเฟกต์ Comet (ดาวตก) สมจริงพาดผ่านด้านหลัง --- */
+        /* --- เอฟเฟกต์ Comet (ดาวตก) ปรับแนวพุ่งตรง 45 องศาสมจริง --- */
         .comet-container {
             position: fixed;
             top: 0;
@@ -88,40 +88,49 @@
 
         .comet {
             position: absolute;
-            width: 2px;
-            height: 100px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(72, 202, 228, 0.6), rgba(255, 255, 255, 0.9));
-            border-radius: 50%;
-            filter: drop-shadow(0 0 6px #48cae4);
-            transform: rotate(-35deg);
+            height: 2px;
+            background: linear-gradient(-45deg, rgba(255, 255, 255, 1), rgba(72, 202, 228, 0.8), transparent);
+            border-radius: 999px;
+            filter: drop-shadow(0 0 6px rgba(72, 202, 228, 0.8));
             opacity: 0;
-            animation: cometFall linear infinite;
+            animation: meteor 4s linear infinite;
         }
 
-        @keyframes cometFall {
+        .comet::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #ffffff;
+            box-shadow: 0 0 10px #ffffff, 0 0 20px #48cae4;
+        }
+
+        @keyframes meteor {
             0% {
-                top: -30%;
-                left: 110%;
                 opacity: 0;
+                transform: rotate(-45deg) translateX(0);
             }
-            15% {
-                opacity: 0.8;
+            10% {
+                opacity: 1;
             }
-            85% {
-                opacity: 0.8;
+            70% {
+                opacity: 1;
             }
             100% {
-                top: 120%;
-                left: -20%;
                 opacity: 0;
+                transform: rotate(-45deg) translateX(-1200px);
             }
         }
 
-        .c1 { left: 90%; animation-duration: 4s; animation-delay: 0s; height: 110px; }
-        .c2 { left: 65%; animation-duration: 5.5s; animation-delay: 2s; height: 140px; }
-        .c3 { left: 105%; animation-duration: 3.8s; animation-delay: 4s; height: 90px; }
-        .c4 { left: 45%; animation-duration: 6s; animation-delay: 1s; height: 80px; }
-        .c5 { left: 80%; animation-duration: 4.8s; animation-delay: 3s; height: 120px; }
+        /* ตำแหน่งการปล่อยดาวตกและความยาวหางที่ลงตัว */
+        .c1 { top: -50px; right: 0%; width: 120px; animation-duration: 3.5s; animation-delay: 0s; }
+        .c2 { top: 10%; right: -5%; width: 160px; animation-duration: 4.8s; animation-delay: 1.2s; }
+        .c3 { top: -80px; right: 25%; width: 90px; animation-duration: 3s; animation-delay: 2.5s; }
+        .c4 { top: 20%; right: -10%; width: 140px; animation-duration: 5.2s; animation-delay: 0.7s; }
+        .c5 { top: -30px; right: 15%; width: 110px; animation-duration: 4.1s; animation-delay: 3.8s; }
 
         /* --- ปุ่มเมนู 3 ขีด (Hamburger Menu) --- */
         .menu-btn {
@@ -159,7 +168,6 @@
             transition: all 0.3s ease;
         }
 
-        /* เมื่อเปิดเมนู เปลี่ยนปุ่มเป็น X */
         .menu-btn.open span:nth-child(1) {
             transform: translateY(9px) rotate(45deg);
         }
@@ -170,7 +178,7 @@
             transform: translateY(-9px) rotate(-45deg);
         }
 
-        /* แถบเมนูด้านข้าง (Slide-out Overlay) */
+        /* แถบเมนูด้านข้าง */
         .nav-overlay {
             position: fixed;
             top: 0;
