@@ -74,7 +74,7 @@
             100% { transform: translate(-30px, 30px) scale(0.95); }
         }
 
-        /* --- เอฟเฟกต์ Comet (ดาวตก) พาดผ่านด้านหลัง --- */
+        /* --- เอฟเฟกต์ Comet (ดาวตก) สมจริงพาดผ่านด้านหลัง --- */
         .comet-container {
             position: fixed;
             top: 0;
@@ -88,24 +88,27 @@
 
         .comet {
             position: absolute;
-            width: 3px;
-            height: 120px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(72, 202, 228, 0.8), rgba(255, 255, 255, 1));
+            width: 2px;
+            height: 100px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(72, 202, 228, 0.6), rgba(255, 255, 255, 0.9));
             border-radius: 50%;
-            filter: drop-shadow(0 0 8px #48cae4);
-            transform: rotate(-45deg);
+            filter: drop-shadow(0 0 6px #48cae4);
+            transform: rotate(-35deg);
             opacity: 0;
             animation: cometFall linear infinite;
         }
 
         @keyframes cometFall {
             0% {
-                top: -20%;
+                top: -30%;
                 left: 110%;
-                opacity: 1;
+                opacity: 0;
             }
-            70% {
-                opacity: 1;
+            15% {
+                opacity: 0.8;
+            }
+            85% {
+                opacity: 0.8;
             }
             100% {
                 top: 120%;
@@ -114,11 +117,11 @@
             }
         }
 
-        .c1 { left: 80%; animation-duration: 3s; animation-delay: 0s; }
-        .c2 { left: 60%; animation-duration: 4.5s; animation-delay: 1.5s; height: 160px; }
-        .c3 { left: 95%; animation-duration: 3.5s; animation-delay: 3s; }
-        .c4 { left: 40%; animation-duration: 5s; animation-delay: 0.5s; height: 100px; }
-        .c5 { left: 70%; animation-duration: 4s; animation-delay: 2.5s; }
+        .c1 { left: 90%; animation-duration: 4s; animation-delay: 0s; height: 110px; }
+        .c2 { left: 65%; animation-duration: 5.5s; animation-delay: 2s; height: 140px; }
+        .c3 { left: 105%; animation-duration: 3.8s; animation-delay: 4s; height: 90px; }
+        .c4 { left: 45%; animation-duration: 6s; animation-delay: 1s; height: 80px; }
+        .c5 { left: 80%; animation-duration: 4.8s; animation-delay: 3s; height: 120px; }
 
         /* --- ปุ่มเมนู 3 ขีด (Hamburger Menu) --- */
         .menu-btn {
