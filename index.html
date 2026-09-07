@@ -3,296 +3,482 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>หน้าแนะนำตัวของพิมพ์ลภัส</title>
-
+    <title>Portfolio - พิมพ์ลภัส อรุโณ</title>
     <style>
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            margin: 0;
-            padding: 15px;
+            background-color: #0b132b;
+            color: #e0e6ed;
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-family: sans-serif;
-            color: #2c3e50;
-            overflow: hidden;
-
-            background-color: #eef6ff;
-            background-image:
-                linear-gradient(rgba(52, 152, 219, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(52, 152, 219, 0.08) 1px, transparent 1px);
-            background-size: 25px 25px;
-        }
-
-        /* ของตกแต่งลอย */
-        .floating {
-            position: fixed;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .gear {
-            font-size: 55px;
-            animation: spin 8s linear infinite;
-            opacity: 0.65;
-        }
-
-        .gear1 {
-            top: 10%;
-            left: 10%;
-        }
-
-        .gear2 {
-            bottom: 12%;
-            right: 10%;
-            font-size: 40px;
-            animation-direction: reverse;
-        }
-
-        .sparkle {
-            font-size: 25px;
-            animation: sparkle 1.8s ease-in-out infinite;
-        }
-
-        .sparkle1 {
-            top: 18%;
-            right: 18%;
-        }
-
-        .sparkle2 {
-            bottom: 20%;
-            left: 15%;
-            animation-delay: 0.8s;
-        }
-
-        .heart {
-            font-size: 25px;
-            color: #e88bb7;
-            animation: floatHeart 3s ease-in-out infinite;
-        }
-
-        .heart1 {
-            top: 30%;
-            left: 7%;
-        }
-
-        .heart2 {
-            bottom: 28%;
-            right: 7%;
-            animation-delay: 1s;
-        }
-
-        /* การ์ดหลัก */
-        .card {
             position: relative;
-            z-index: 2;
-
-            background: rgba(255, 255, 255, 0.96);
-            border-radius: 22px;
-            box-shadow: 0 12px 30px rgba(44, 62, 80, 0.18);
-
-            width: 100%;
-            max-width: 420px;
-            padding: 20px;
-            text-align: center;
-
-            animation: cardFloat 4s ease-in-out infinite;
+            overflow-x: hidden;
         }
 
-        /* แถบด้านบน */
-        .card-header {
-            height: 110px;
-            border-radius: 16px;
-
-            background: linear-gradient(
-                135deg,
-                #dff1ff,
-                #c9e7ff,
-                #f8d9e8
-            );
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 45px;
-
-            box-shadow: inset 0 0 20px rgba(255,255,255,0.7);
+        /* --- พื้นหลัง Deep Blue แสงเรืองวงกลม --- */
+        .bg-glow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -3;
+            overflow: hidden;
+            pointer-events: none;
         }
 
-        .card-header::before {
-            content: "⚙️";
-            animation: spin 6s linear infinite;
+        .glow-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.5;
+            animation: floatGlow 14s infinite ease-in-out alternate;
         }
 
-        h1 {
-            color: #2c3e50;
-            font-size: 22px;
-            line-height: 1.5;
-            margin: 22px 0 15px;
+        .blob-1 {
+            width: 450px;
+            height: 450px;
+            background: #1c2541;
+            top: -100px;
+            left: -100px;
         }
 
-        h1 span {
-            color: #3498db;
+        .blob-2 {
+            width: 550px;
+            height: 550px;
+            background: #3a506b;
+            bottom: -150px;
+            right: -100px;
+            animation-duration: 18s;
         }
 
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            margin: 10px 0;
-            color: #5d7184;
+        .blob-3 {
+            width: 350px;
+            height: 350px;
+            background: #48cae4;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0.25;
+            animation-duration: 20s;
         }
 
-        strong {
-            color: #3498db;
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, 50px) scale(1.1); }
+            100% { transform: translate(-30px, 30px) scale(0.95); }
         }
 
-        /* ปุ่ม */
-        .btn {
-            display: block;
-            background: #2c3e50;
-            color: white;
-
-            padding: 14px;
-            text-decoration: none;
-            border-radius: 30px;
-
-            margin-top: 25px;
-            font-weight: bold;
-
-            box-shadow: 0 5px 0 #1d2a36;
-
-            transition: 0.2s;
+        /* --- เอฟเฟกต์ Comet (ดาวตก) พาดผ่านด้านหลัง --- */
+        .comet-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            pointer-events: none;
+            overflow: hidden;
         }
 
-        .btn:hover {
-            background: #3498db;
-            transform: translateY(-3px);
-            box-shadow: 0 7px 0 #217dbb;
+        .comet {
+            position: absolute;
+            width: 3px;
+            height: 120px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0), rgba(72, 202, 228, 0.8), rgba(255, 255, 255, 1));
+            border-radius: 50%;
+            filter: drop-shadow(0 0 8px #48cae4);
+            transform: rotate(-45deg);
+            opacity: 0;
+            animation: cometFall linear infinite;
         }
 
-        .btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0 #217dbb;
-        }
-
-        .small-text {
-            margin-top: 18px;
-            font-size: 13px;
-            color: #8a9aaa;
-        }
-
-        .pink-heart {
-            color: #e88bb7;
-        }
-
-        /* Animation */
-        @keyframes spin {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes sparkle {
-            0%, 100% {
-                transform: scale(0.7) rotate(0deg);
-                opacity: 0.3;
-            }
-
-            50% {
-                transform: scale(1.3) rotate(20deg);
+        @keyframes cometFall {
+            0% {
+                top: -20%;
+                left: 110%;
                 opacity: 1;
             }
-        }
-
-        @keyframes floatHeart {
-            0%, 100% {
-                transform: translateY(0) rotate(-8deg);
+            70% {
+                opacity: 1;
             }
-
-            50% {
-                transform: translateY(-18px) rotate(8deg);
+            100% {
+                top: 120%;
+                left: -20%;
+                opacity: 0;
             }
         }
 
-        @keyframes cardFloat {
-            0%, 100% {
-                transform: translateY(0);
-            }
+        .c1 { left: 80%; animation-duration: 3s; animation-delay: 0s; }
+        .c2 { left: 60%; animation-duration: 4.5s; animation-delay: 1.5s; height: 160px; }
+        .c3 { left: 95%; animation-duration: 3.5s; animation-delay: 3s; }
+        .c4 { left: 40%; animation-duration: 5s; animation-delay: 0.5s; height: 100px; }
+        .c5 { left: 70%; animation-duration: 4s; animation-delay: 2.5s; }
 
-            50% {
-                transform: translateY(-6px);
-            }
+        /* --- ปุ่มเมนู 3 ขีด (Hamburger Menu) --- */
+        .menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 25px;
+            z-index: 1001;
+            width: 48px;
+            height: 48px;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(72, 202, 228, 0.4);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
         }
 
-        /* มือถือ */
-        @media (max-width: 500px) {
-            .gear {
-                font-size: 40px;
-            }
+        .menu-btn:hover {
+            border-color: #48cae4;
+            box-shadow: 0 0 15px rgba(72, 202, 228, 0.5);
+            transform: scale(1.05);
+        }
 
-            .heart {
-                font-size: 20px;
-            }
+        .menu-btn span {
+            width: 24px;
+            height: 3px;
+            background-color: #00b4d8;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
 
-            .sparkle {
-                font-size: 20px;
-            }
+        /* เมื่อเปิดเมนู เปลี่ยนปุ่มเป็น X */
+        .menu-btn.open span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+        .menu-btn.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-btn.open span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        /* แถบเมนูด้านข้าง (Slide-out Overlay) */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: rgba(11, 19, 43, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 80px 30px 30px 30px;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+            border-left: 1px solid rgba(72, 202, 228, 0.3);
+            transition: right 0.4s ease;
+        }
+
+        .nav-overlay.open {
+            right: 0;
+        }
+
+        .nav-overlay ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nav-overlay a {
+            color: #caf0f8;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-size: 15px;
+            display: block;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(72, 202, 228, 0.15);
+            cursor: pointer;
+        }
+
+        .nav-overlay a:hover, .nav-overlay a.active {
+            background: linear-gradient(135deg, #0077b6, #00b4d8);
+            color: #ffffff;
+            border-color: #48cae4;
+            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
+            transform: translateX(-5px);
+        }
+
+        /* Container หลัก */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* การ์ดหลักแบบ Dark Glassmorphism */
+        .card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 24px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 
+                        inset 0 0 15px rgba(72, 202, 228, 0.1);
+            border: 1px solid rgba(72, 202, 228, 0.25);
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* รูปโปรไฟล์ */
+        .profile-img-wrapper {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 190px;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #00b4d8;
+            box-shadow: 0 0 25px rgba(0, 180, 216, 0.5);
+            background-color: #1c2541;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.03) rotate(2deg);
+        }
+
+        /* บล็อกเนื้อหา */
+        .info-box {
+            background: rgba(28, 37, 65, 0.7);
+            border-radius: 16px;
+            padding: 22px;
+            text-align: left;
+            margin-top: 20px;
+            border: 1px solid rgba(72, 202, 228, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-box h3 {
+            color: #48cae4;
+            margin-bottom: 12px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .info-box p {
+            margin: 8px 0;
+            color: #d1d5db;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* ช่องทางการติดต่อ */
+        .contact-box {
+            background: rgba(20, 30, 55, 0.8);
+            border-radius: 16px;
+            padding: 22px;
+            text-align: left;
+            margin-top: 20px;
+            border: 1px dashed rgba(72, 202, 228, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-box h3 {
+            color: #90e0ef;
+            margin-bottom: 12px;
+            font-size: 18px;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin: 10px 0;
+            font-size: 15px;
+            color: #e0e6ed;
+        }
+
+        .contact-list a {
+            color: #48cae4;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .contact-list a:hover {
+            color: #90e0ef;
+            text-decoration: underline;
         }
     </style>
 </head>
-
 <body>
 
-    <!-- ของตกแต่งลอย ๆ -->
-    <div class="floating gear gear1">⚙️</div>
-    <div class="floating gear gear2">⚙️</div>
-
-    <div class="floating sparkle sparkle1">✨</div>
-    <div class="floating sparkle sparkle2">⭐</div>
-
-    <div class="floating heart heart1">♡</div>
-    <div class="floating heart heart2">💗</div>
-
-
-    <div class="card">
-
-        <div class="card-header"></div>
-
-        <h1>
-            ยินดีต้อนรับสู่โปรไฟล์ของ<br>
-            <span>พิมพ์ลภัส (Pimrapat)</span> 💗
-        </h1>
-
-        <p>
-            ขณะนี้กำลังศึกษาและสนใจด้าน
-            <strong>วิศวกรรมศาสตร์</strong> ⚙️
-        </p>
-
-        <p>
-            นี่คือเว็บไซต์แรกของดิฉัน
-            ที่โฮสต์บน GitHub Pages
-        </p>
-
-        <a href="portfolio.html" class="btn">
-            📁 ดูแฟ้มสะสมงานทางวิศวกรรม
-        </a>
-
-        <div class="small-text">
-            Engineering × Creativity
-            <span class="pink-heart">♥</span>
-        </div>
-
+    <!-- พื้นหลังวงกลมเรืองแสง -->
+    <div class="bg-glow-container">
+        <div class="glow-blob blob-1"></div>
+        <div class="glow-blob blob-2"></div>
+        <div class="glow-blob blob-3"></div>
     </div>
+
+    <!-- เอฟเฟกต์ Comet ดาวตกพาดผ่าน -->
+    <div class="comet-container">
+        <div class="comet c1"></div>
+        <div class="comet c2"></div>
+        <div class="comet c3"></div>
+        <div class="comet c4"></div>
+        <div class="comet c5"></div>
+    </div>
+
+    <!-- ปุ่มเมนู 3 ขีด (Hamburger) -->
+    <div class="menu-btn" id="menuBtn" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- แถบเมนูด้านข้าง สไลด์ออกมา -->
+    <nav class="nav-overlay" id="navOverlay">
+        <ul>
+            <li><a class="nav-link active" onclick="switchTab('home', event)">🌌 หน้าแรก</a></li>
+            <li><a class="nav-link" onclick="switchTab('intro', event)">📖 คำนำ</a></li>
+            <li><a class="nav-link" onclick="switchTab('profile', event)">💎 ประวัติส่วนตัว</a></li>
+            <li><a class="nav-link" onclick="switchTab('education', event)">🎓 ความสนใจในการศึกษาต่อ</a></li>
+            <li><a class="nav-link" onclick="switchTab('activities', event)">✨ กิจกรรม</a></li>
+            <li><a class="nav-link" onclick="switchTab('skills', event)">🌟 ความสามารถพิเศษ</a></li>
+        </ul>
+    </nav>
+
+    <!-- ส่วนเนื้อหาหลัก -->
+    <div class="container">
+        <div class="card">
+
+            <!-- หน้า 1: หน้าแรก -->
+            <div id="home" class="tab-content active">
+                <div class="profile-img-wrapper">
+                    <img src="profile.jpg" alt="รูปโปรไฟล์ พิมพ์ลภัส" class="profile-img">
+                </div>
+                
+                <div class="info-box">
+                    <h3>🌌 แนะนำตัว</h3>
+                    <p><strong>ชื่อ-นามสกุล:</strong> นางสาวพิมพ์ลภัส อรุโณ</p>
+                    <p><strong>แผนการเรียน:</strong> ห้องเรียนพิเศษวิทยาศาสตร์และคณิตศาสตร์ (GIFTED)</p>
+                </div>
+
+                <div class="contact-box">
+                    <h3>💌 ช่องทางการติดต่อ</h3>
+                    <ul class="contact-list">
+                        <li>✉️ <strong>Gmail:</strong> <a href="mailto:faiipimrapat@gmail.com">faiipimrapat@gmail.com</a></li>
+                        <li>📷 <strong>Instagram:</strong> <a href="https://instagram.com/faii1823" target="_blank">faii1823</a></li>
+                        <li>💬 <strong>Line:</strong> 2018235wfr</li>
+                        <li>📞 <strong>เบอร์โทร:</strong> 0951257853</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- หน้า 2: คำนำ -->
+            <div id="intro" class="tab-content">
+                <h2 style="color: #48cae4; margin-bottom: 15px;">📖 คำนำ</h2>
+                <div class="info-box">
+                    <p style="text-indent: 30px;">แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้ จัดทำขึ้นเพื่อรวบรวมประวัติการศึกษา ความรู้ ทักษะ ผลงาน และกิจกรรมต่าง ๆ ของข้าพเจ้า เพื่อใช้เป็นเอกสารประกอบการพิจารณาเข้าศึกษาต่อในระดับอุดมศึกษา</p>
+                    
+                    <p style="text-align: right; margin-top: 20px; font-weight: bold; color: #00b4d8;">
+                        (พิมพ์ลภัส อรุโณ)<br>
+                        ผู้จัดทำ
+                    </p>
+                </div>
+            </div>
+
+            <!-- หน้า 3: ประวัติส่วนตัว -->
+            <div id="profile" class="tab-content">
+                <h2 style="color: #48cae4; margin-bottom: 15px;">💎 ประวัติส่วนตัว</h2>
+                <div class="info-box">
+                    <p><strong>ชื่อ-นามสกุล:</strong> นางสาวพิมพ์ลภัส อรุโณ</p>
+                    <p><strong>แผนการเรียน:</strong> ห้องเรียนพิเศษวิทยาศาสตร์และคณิตศาสตร์ (GIFTED)</p>
+                </div>
+            </div>
+
+            <!-- หน้า 4: ความสนใจในการศึกษาต่อ -->
+            <div id="education" class="tab-content">
+                <h2 style="color: #48cae4; margin-bottom: 15px;">🎓 ความสนใจในการศึกษาต่อ</h2>
+                <div class="info-box">
+                    <p>กำลังรวบรวมข้อมูลความสนใจในการศึกษาต่อ...</p>
+                </div>
+            </div>
+
+            <!-- หน้า 5: กิจกรรม -->
+            <div id="activities" class="tab-content">
+                <h2 style="color: #48cae4; margin-bottom: 15px;">✨ กิจกรรมที่เข้าร่วม</h2>
+                <div class="info-box">
+                    <p>กำลังรวบรวมข้อมูลกิจกรรม...</p>
+                </div>
+            </div>
+
+            <!-- หน้า 6: ความสามารถพิเศษ -->
+            <div id="skills" class="tab-content">
+                <h2 style="color: #48cae4; margin-bottom: 15px;">🌟 ความสามารถพิเศษ</h2>
+                <div class="info-box">
+                    <p>กำลังรวบรวมข้อมูลความสามารถพิเศษ...</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- สคริปต์สำหรับการทำงานของเมนูและการสลับหน้า -->
+    <script>
+        function toggleMenu() {
+            const menuBtn = document.getElementById('menuBtn');
+            const navOverlay = document.getElementById('navOverlay');
+            menuBtn.classList.toggle('open');
+            navOverlay.classList.toggle('open');
+        }
+
+        function switchTab(tabId, event) {
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => link.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
+
+            toggleMenu();
+        }
+    </script>
 
 </body>
 </html>
-
