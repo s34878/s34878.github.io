@@ -247,7 +247,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- ปรับปรุง CSS รูปโปรไฟล์ให้วงกลมสมบูรณ์และรูปไม่เบี้ยว --- */
+        /* --- กรอบรูปโปรไฟล์วงกลมทรงสมดุล --- */
         .profile-img-wrapper {
             position: relative;
             display: inline-block;
@@ -265,7 +265,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 25%; /* โฟกัสช่วงใบหน้า */
+            object-position: center 25%;
             display: block;
         }
 
@@ -350,14 +350,12 @@
 </head>
 <body>
 
-    <!-- พื้นหลังวงกลมเรืองแสง -->
     <div class="bg-glow-container">
         <div class="glow-blob blob-1"></div>
         <div class="glow-blob blob-2"></div>
         <div class="glow-blob blob-3"></div>
     </div>
 
-    <!-- เอฟเฟกต์ Comet ดาวตก -->
     <div class="comet-container">
         <div class="comet c1"></div>
         <div class="comet c2"></div>
@@ -366,14 +364,12 @@
         <div class="comet c5"></div>
     </div>
 
-    <!-- ปุ่มเมนู 3 ขีด -->
     <div class="menu-btn" id="menuBtn" onclick="toggleMenu()">
         <span></span>
         <span></span>
         <span></span>
     </div>
 
-    <!-- แถบเมนูด้านข้าง -->
     <nav class="nav-overlay" id="navOverlay">
         <ul>
             <li><button class="nav-btn active" onclick="showTab('home', this)">🌌 หน้าแรก</button></li>
@@ -384,11 +380,9 @@
         </ul>
     </nav>
 
-    <!-- ส่วนเนื้อหาหลัก -->
     <div class="container">
         <div class="card">
 
-            <!-- หน้า 1: หน้าแรก -->
             <div id="home" class="tab-content active">
                 <div class="profile-img-wrapper">
                     <img src="profile_faii.jpeg" alt="รูปโปรไฟล์ พิมพ์ลภัส" class="profile-img">
@@ -411,7 +405,6 @@
                 </div>
             </div>
 
-            <!-- หน้า 2: คำนำ -->
             <div id="intro" class="tab-content">
                 <h2 style="color: #48cae4; margin-bottom: 15px;">📖 คำนำ</h2>
                 <div class="info-box">
@@ -421,7 +414,6 @@
                 </div>
             </div>
 
-            <!-- หน้า 3: ประวัติส่วนตัว -->
             <div id="profile" class="tab-content">
                 <h2 style="color: #48cae4; margin-bottom: 15px;">💎 ประวัติส่วนตัว</h2>
                 
@@ -452,7 +444,6 @@
                 </div>
             </div>
 
-            <!-- หน้า 4: ความสนใจในการศึกษาต่อ -->
             <div id="education" class="tab-content">
                 <h2 style="color: #48cae4; margin-bottom: 15px;">🎓 ความสนใจในการศึกษาต่อ</h2>
                 <div class="info-box">
@@ -464,11 +455,9 @@
                 </div>
             </div>
 
-            <!-- หน้า 5: กิจกรรมและผลงาน -->
             <div id="activities" class="tab-content">
                 <h2 style="color: #48cae4; margin-bottom: 15px;">✨ กิจกรรมและผลงาน (Certificates)</h2>
                 
-                <!-- ผลงานที่ 1: PLC BATTLE -->
                 <div class="info-box">
                     <h3>🏆 รางวัล GOOD PERFORMANCE PRIZE (PLC BATTLE THAILAND 2025)</h3>
                     <p><strong>การแข่งขัน:</strong> PLC BATTLE THAILAND 2025</p>
@@ -477,11 +466,10 @@
                     <p><strong>หน่วยงานที่จัด:</strong> ศูนย์ความเป็นเลิศทางเทคโนโลยีเครื่องมือวัดและระบบอัตโนมัติ (CEITA) คณะวิศวกรรมศาสตร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี</p>
                     
                     <div class="cert-card">
-                        <img src="Plc faii.jpeg" alt="เกียรติบัตร PLC BATTLE THAILAND 2025" class="cert-img">
+                        <img src="Plc faiii.jpeg" alt="เกียรติบัตร PLC BATTLE THAILAND 2025" class="cert-img">
                     </div>
                 </div>
 
-                <!-- ผลงานที่ 2: หุ่นยนต์ระดับกลาง -->
                 <div class="info-box">
                     <h3>🥉 รางวัลระดับเหรียญทองแดง (การแข่งขันหุ่นยนต์)</h3>
                     <p><strong>กิจกรรม:</strong> การแข่งขันหุ่นยนต์ระดับกลาง ระดับชั้น ม.4 - ม.6</p>
@@ -495,7 +483,6 @@
                     </div>
                 </div>
 
-                <!-- ผลงานที่ 3: คณะกรรมการฝ่ายระบบ -->
                 <div class="info-box">
                     <h3>💻 คณะกรรมการฝ่ายระบบดูแลการแข่งขัน</h3>
                     <p><strong>บทบาท:</strong> คณะกรรมการฝ่ายระบบดูแลการแข่งขัน ศูนย์การแข่งขันกิจกรรมคอมพิวเตอร์</p>
@@ -512,7 +499,6 @@
         </div>
     </div>
 
-    <!-- สคริปต์ควบคุมเมนูและการเปิดปิด -->
     <script>
         function toggleMenu() {
             var btn = document.getElementById('menuBtn');
