@@ -312,6 +312,36 @@
             line-height: 1.8;
         }
 
+        .info-box ul {
+            margin-left: 20px;
+            color: #d1d5db;
+            line-height: 1.8;
+        }
+
+        /* สำหรับแสดงผลงาน/เกียรติบัตร */
+        .cert-card {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 16px;
+            padding: 15px;
+            border: 1px solid rgba(72, 202, 228, 0.3);
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .cert-img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border: 2px solid rgba(72, 202, 228, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-img:hover {
+            transform: scale(1.02);
+            border-color: #48cae4;
+        }
+
         /* ช่องทางการติดต่อ */
         .contact-box {
             background: rgba(20, 30, 55, 0.8);
@@ -384,7 +414,7 @@
             <li><a class="nav-link" onclick="switchTab('intro', event)">📖 คำนำ</a></li>
             <li><a class="nav-link" onclick="switchTab('profile', event)">💎 ประวัติส่วนตัว</a></li>
             <li><a class="nav-link" onclick="switchTab('education', event)">🎓 ความสนใจในการศึกษาต่อ</a></li>
-            <li><a class="nav-link" onclick="switchTab('activities', event)">✨ กิจกรรม</a></li>
+            <li><a class="nav-link" onclick="switchTab('activities', event)">✨ กิจกรรมและผลงาน</a></li>
             <li><a class="nav-link" onclick="switchTab('skills', event)">🌟 ความสามารถพิเศษ</a></li>
         </ul>
     </nav>
@@ -421,7 +451,7 @@
                 <h2 style="color: #48cae4; margin-bottom: 15px;">📖 คำนำ</h2>
                 <div class="info-box">
                     <p>แฟ้มสะสมผลงาน (Portfolio) ฉบับนี้ จัดทำขึ้นเพื่อรวบรวมประวัติการศึกษา ความรู้ ทักษะ ผลงาน และ กิจกรรมต่าง ๆ ของข้าพเจ้า เพื่อใช้เป็นเอกสารประกอบการพิจารณาเข้าศึกษาต่อในระดับอุดมศึกษา</p>
-                    <p style="margin-top: 12px;">การจัดทําเอกสารฉบับนี้มีเป้าหมายเพื่อสะท้อนถึงความพร้อม ความมุ่งมั่น และศักยภาพของข้าพเจ้าใน สาขาวิชานี้อย่างเป็นระบบ ข้าพเจ้าขอขอบพระคุณคณะครูโรงเรียนบ้านบึง “อุดสาหกรรมนุเคราะห์ ครอบครัว และเพื่อน ๆ ที่ให้การอบรมสั่งสอน ค่าแนะนำ และการสนับสนุนด้วยดีมาโดยตลอด</p>
+                    <p style="margin-top: 12px;">การจัดทําเอกสารฉบับนี้มีเป้าหมายเพื่อสะท้อนถึงความพร้อม ความมุ่งมั่น และศักยภาพของข้าพเจ้าใน สาขาวิชานี้อย่างเป็นระบบ ข้าพเจ้าขอขอบพระคุณคณะครูโรงเรียนบ้านบึง “อุตสาหกรรมนุเคราะห์” ครอบครัว และเพื่อน ๆ ที่ให้การอบรมสั่งสอน คำแนะนำ และการสนับสนุนด้วยดีมาโดยตลอด</p>
                     <p style="margin-top: 12px;">ข้าพเจ้าหวังเป็นอย่างยิ่งว่าแฟ้มสะสมผลงานเล่มนี้ จะช่วยให้คณะกรรมการได้เห็นถึงความตั้งใจจริงของ ข้าพเจ้า หากมีข้อผิดพลาดประการใด ข้าพเจ้าขออภัยมา ณ ที่นี้</p>
                 </div>
             </div>
@@ -429,9 +459,21 @@
             <!-- หน้า 3: ประวัติส่วนตัว -->
             <div id="profile" class="tab-content">
                 <h2 style="color: #48cae4; margin-bottom: 15px;">💎 ประวัติส่วนตัว</h2>
+                
                 <div class="info-box">
+                    <h3>📌 ข้อมูลทั่วไป</h3>
                     <p><strong>ชื่อ-นามสกุล:</strong> นางสาวพิมพ์ลภัส อรุโณ</p>
+                    <p><strong>วัน/เดือน/ปีเกิด:</strong> 20 พฤษภาคม พ.ศ. 2552</p>
                     <p><strong>แผนการเรียน:</strong> ห้องเรียนพิเศษวิทยาศาสตร์และคณิตศาสตร์ (GIFTED)</p>
+                    <p><strong>งานอดิเรก:</strong> ฟังเพลง, นอน, ศึกษาเรื่องที่สนใจ</p>
+                </div>
+
+                <div class="info-box">
+                    <h3>🎓 ประวัติการศึกษา</h3>
+                    <ul>
+                        <li><strong>ระดับประถมศึกษา:</strong> โรงเรียนบุญประทีปวิทยาคาร</li>
+                        <li><strong>ระดับมัธยมศึกษา:</strong> โรงเรียนบ้านบึง “อุตสาหกรรมนุเคราะห์”</li>
+                    </ul>
                 </div>
             </div>
 
@@ -447,11 +489,20 @@
                 </div>
             </div>
 
-            <!-- หน้า 5: กิจกรรม -->
+            <!-- หน้า 5: กิจกรรมและผลงาน -->
             <div id="activities" class="tab-content">
-                <h2 style="color: #48cae4; margin-bottom: 15px;">✨ กิจกรรมที่เข้าร่วม</h2>
+                <h2 style="color: #48cae4; margin-bottom: 15px;">✨ กิจกรรมและผลงาน (Certificates)</h2>
+                
                 <div class="info-box">
-                    <p>กำลังรวบรวมข้อมูลกิจกรรม...</p>
+                    <h3>🏆 รางวัลเกียรติบัตร</h3>
+                    <p><strong>การแข่งขัน:</strong> PLC BATTLE THAILAND 2025</p>
+                    <p><strong>รางวัลที่ได้รับ:</strong> GOOD PERFORMANCE PRIZE</p>
+                    <p><strong>วันที่:</strong> 13–14 ธันวาคม 2025</p>
+                    <p><strong>สถานที่:</strong> ศูนย์ความเป็นเลิศทางเทคโนโลยีเครื่องมือวัดและระบบอัตโนมัติ (CEITA) มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ วิทยาเขตปราจีนบุรี</p>
+                    
+                    <div class="cert-card">
+                        <img src="Plc faii.jpeg" alt="เกียรติบัตร PLC BATTLE THAILAND 2025" class="cert-img">
+                    </div>
                 </div>
             </div>
 
