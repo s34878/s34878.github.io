@@ -247,20 +247,26 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* --- ปรับปรุง CSS รูปโปรไฟล์ให้วงกลมสมบูรณ์และรูปไม่เบี้ยว --- */
         .profile-img-wrapper {
             position: relative;
             display: inline-block;
             margin-bottom: 20px;
-        }
-
-        .profile-img {
-            width: 190px;
-            height: 190px;
-            object-fit: cover;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
+            overflow: hidden;
             border: 4px solid #00b4d8;
             box-shadow: 0 0 25px rgba(0, 180, 216, 0.5);
             background-color: #1c2541;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 25%; /* โฟกัสช่วงใบหน้า */
+            display: block;
         }
 
         .info-box {
