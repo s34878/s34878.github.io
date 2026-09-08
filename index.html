@@ -109,20 +109,10 @@
         }
 
         @keyframes meteor {
-            0% {
-                opacity: 0;
-                transform: rotate(-45deg) translateX(0);
-            }
-            10% {
-                opacity: 1;
-            }
-            70% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: rotate(-45deg) translateX(-1200px);
-            }
+            0% { opacity: 0; transform: rotate(-45deg) translateX(0); }
+            10% { opacity: 1; }
+            70% { opacity: 1; }
+            100% { opacity: 0; transform: rotate(-45deg) translateX(-1200px); }
         }
 
         .c1 { top: -50px; right: 0%; width: 120px; animation-duration: 3.5s; animation-delay: 0s; }
@@ -136,12 +126,12 @@
             position: fixed;
             top: 20px;
             right: 25px;
-            z-index: 10001;
-            width: 48px;
-            height: 48px;
-            background: rgba(15, 23, 42, 0.9);
+            z-index: 100001;
+            width: 50px;
+            height: 50px;
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(72, 202, 228, 0.5);
+            border: 2px solid #00b4d8;
             border-radius: 12px;
             display: flex;
             flex-direction: column;
@@ -149,9 +139,10 @@
             align-items: center;
             gap: 6px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
             transition: all 0.3s ease;
             user-select: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .menu-btn span {
@@ -178,19 +169,19 @@
             position: fixed;
             top: 0;
             right: -100%;
-            width: 280px;
+            width: 290px;
             height: 100vh;
             background: rgba(11, 19, 43, 0.98);
             backdrop-filter: blur(25px);
-            z-index: 10000;
-            padding: 80px 20px 30px 20px;
-            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.7);
+            z-index: 100000;
+            padding: 90px 20px 30px 20px;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.8);
             border-left: 1px solid rgba(72, 202, 228, 0.3);
-            transition: right 0.4s ease;
+            transition: right 0.35s ease-in-out;
         }
 
         .nav-overlay.open {
-            right: 0;
+            right: 0 !important;
         }
 
         .nav-overlay ul {
@@ -220,7 +211,6 @@
             color: #ffffff;
             border-color: #48cae4;
             box-shadow: 0 4px 15px rgba(0, 180, 216, 0.4);
-            transform: translateX(-5px);
         }
 
         /* Container หลัก */
@@ -230,9 +220,8 @@
             padding: 0 20px;
         }
 
-        /* การ์ดหลักแบบ Dark Glassmorphism */
         .card {
-            background: rgba(15, 23, 42, 0.75);
+            background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(16px);
             border-radius: 24px;
             padding: 35px;
@@ -250,7 +239,7 @@
         }
 
         .tab-content.active {
-            display: block;
+            display: block !important;
         }
 
         @keyframes fadeIn {
@@ -258,7 +247,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* รูปโปรไฟล์ */
         .profile-img-wrapper {
             position: relative;
             display: inline-block;
@@ -273,10 +261,8 @@
             border: 4px solid #00b4d8;
             box-shadow: 0 0 25px rgba(0, 180, 216, 0.5);
             background-color: #1c2541;
-            transition: transform 0.3s ease;
         }
 
-        /* บล็อกเนื้อหา */
         .info-box {
             background: rgba(28, 37, 65, 0.7);
             border-radius: 16px;
@@ -306,7 +292,6 @@
             line-height: 1.8;
         }
 
-        /* สำหรับแสดงผลงาน/เกียรติบัตร */
         .cert-card {
             background: rgba(15, 23, 42, 0.6);
             border-radius: 16px;
@@ -324,7 +309,6 @@
             border: 2px solid rgba(72, 202, 228, 0.3);
         }
 
-        /* ช่องทางการติดต่อ */
         .contact-box {
             background: rgba(20, 30, 55, 0.8);
             border-radius: 16px;
@@ -360,14 +344,12 @@
 </head>
 <body>
 
-    <!-- พื้นหลังวงกลมเรืองแสง -->
     <div class="bg-glow-container">
         <div class="glow-blob blob-1"></div>
         <div class="glow-blob blob-2"></div>
         <div class="glow-blob blob-3"></div>
     </div>
 
-    <!-- เอฟเฟกต์ Comet ดาวตกพาดผ่าน -->
     <div class="comet-container">
         <div class="comet c1"></div>
         <div class="comet c2"></div>
@@ -376,33 +358,29 @@
         <div class="comet c5"></div>
     </div>
 
-    <!-- ปุ่มเมนู 3 ขีด (Hamburger) -->
-    <div class="menu-btn" id="menuBtn">
+    <div class="menu-btn" id="menuBtn" onclick="toggleMenu()">
         <span></span>
         <span></span>
         <span></span>
     </div>
 
-    <!-- แถบเมนูด้านข้าง สไลด์ออกมา -->
     <nav class="nav-overlay" id="navOverlay">
         <ul>
-            <li><button class="nav-btn active" data-tab="home">🌌 หน้าแรก</button></li>
-            <li><button class="nav-btn" data-tab="intro">📖 คำนำ</button></li>
-            <li><button class="nav-btn" data-tab="profile">💎 ประวัติส่วนตัว</button></li>
-            <li><button class="nav-btn" data-tab="education">🎓 ความสนใจในการศึกษาต่อ</button></li>
-            <li><button class="nav-btn" data-tab="activities">✨ กิจกรรมและผลงาน</button></li>
-            <li><button class="nav-btn" data-tab="skills">🌟 ความสามารถพิเศษ</button></li>
+            <li><button class="nav-btn active" onclick="showTab('home', this)">🌌 หน้าแรก</button></li>
+            <li><button class="nav-btn" onclick="showTab('intro', this)">📖 คำนำ</button></li>
+            <li><button class="nav-btn" onclick="showTab('profile', this)">💎 ประวัติส่วนตัว</button></li>
+            <li><button class="nav-btn" onclick="showTab('education', this)">🎓 ความสนใจในการศึกษาต่อ</button></li>
+            <li><button class="nav-btn" onclick="showTab('activities', this)">✨ กิจกรรมและผลงาน</button></li>
+            <li><button class="nav-btn" onclick="showTab('skills', this)">🌟 ความสามารถพิเศษ</button></li>
         </ul>
     </nav>
 
-    <!-- ส่วนเนื้อหาหลัก -->
     <div class="container">
         <div class="card">
 
-            <!-- หน้า 1: หน้าแรก -->
             <div id="home" class="tab-content active">
                 <div class="profile-img-wrapper">
-                    <img src="profile.jpg" alt="รูปโปรไฟล์ พิมพ์ลภัส" class="profile-img">
+                    <img src="S27320348.jpg" alt="รูปโปรไฟล์ พิมพ์ลภัส" class="profile-img">
                 </div>
                 
                 <div class="info-box">
@@ -422,7 +400,6 @@
                 </div>
             </div>
 
-            <!-- หน้า 2: คำนำ -->
             <div id="intro" class="tab-content">
                 <h2 style="color: #48cae4; margin-bottom: 15px;">📖 คำนำ</h2>
                 <div class="info-box">
@@ -432,7 +409,6 @@
                 </div>
             </div>
 
-            <!-- หน้า 3: ประวัติส่วนตัว -->
             <div id="profile" class="tab-content">
                 <h2 style="color: #48cae4; margin-bottom: 15px;">💎 ประวัติส่วนตัว</h2>
                 
@@ -453,7 +429,6 @@
                 </div>
             </div>
 
-            <!-- หน้า 4: ความสนใจในการศึกษาต่อ -->
             <div id="education" class="tab-content">
                 <h2 style="color: #48cae4; margin-bottom: 15px;">🎓 ความสนใจในการศึกษาต่อ</h2>
                 <div class="info-box">
@@ -465,11 +440,9 @@
                 </div>
             </div>
 
-            <!-- หน้า 5: กิจกรรมและผลงาน -->
             <div id="activities" class="tab-content">
                 <h2 style="color: #48cae4; margin-bottom: 15px;">✨ กิจกรรมและผลงาน (Certificates)</h2>
                 
-                <!-- ผลงานที่ 1: PLC BATTLE -->
                 <div class="info-box">
                     <h3>🏆 รางวัล GOOD PERFORMANCE PRIZE (PLC BATTLE THAILAND 2025)</h3>
                     <p><strong>การแข่งขัน:</strong> PLC BATTLE THAILAND 2025</p>
@@ -482,7 +455,6 @@
                     </div>
                 </div>
 
-                <!-- ผลงานที่ 2: หุ่นยนต์ระดับกลาง -->
                 <div class="info-box">
                     <h3>🥉 รางวัลระดับเหรียญทองแดง (การแข่งขันหุ่นยนต์)</h3>
                     <p><strong>กิจกรรม:</strong> การแข่งขันหุ่นยนต์ระดับกลาง ระดับชั้น ม.4 - ม.6</p>
@@ -496,7 +468,6 @@
                     </div>
                 </div>
 
-                <!-- ผลงานที่ 3: คณะกรรมการฝ่ายระบบ -->
                 <div class="info-box">
                     <h3>💻 คณะกรรมการฝ่ายระบบดูแลการแข่งขัน</h3>
                     <p><strong>บทบาท:</strong> คณะกรรมการฝ่ายระบบดูแลการแข่งขัน ศูนย์การแข่งขันกิจกรรมคอมพิวเตอร์</p>
@@ -508,9 +479,25 @@
                         <img src="staff_cer.jpeg" alt="เกียรติบัตร คณะกรรมการฝ่ายระบบ" class="cert-img">
                     </div>
                 </div>
+
+                <div class="info-box">
+                    <h3>🏥 หนังสือรับรองการฝึกปฏิบัติงานโรงพยาบาลบ้านบึง</h3>
+                    <p><strong>หน่วยงาน:</strong> กลุ่มงานการพยาบาล โรงพยาบาลบ้านบึง</p>
+                    <p><strong>วันที่ฝึกงาน:</strong> 1, 5–8 พฤษภาคม 2569</p>
+                    
+                    <div class="cert-card">
+                        <img src="S27320376.jpg" alt="หนังสือรับรองการฝึกปฏิบัติงานโรงพยาบาล" class="cert-img">
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h3>🎤 ภาพกิจกรรมแกนนำ ออย.น้อย</h3>
+                    <div class="cert-card">
+                        <img src="126746.jpg" alt="ภาพกิจกรรมแกนนำ ออย.น้อย" class="cert-img">
+                    </div>
+                </div>
             </div>
 
-            <!-- หน้า 6: ความสามารถพิเศษ -->
             <div id="skills" class="tab-content">
                 <h2 style="color: #48cae4; margin-bottom: 15px;">🌟 ความสามารถพิเศษ</h2>
                 <div class="info-box">
@@ -521,38 +508,42 @@
         </div>
     </div>
 
-    <!-- ระบบการสลับหน้าและเปิดปิดเมนูแบบปรับปรุงใหม่ -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuBtn = document.getElementById('menuBtn');
-            const navOverlay = document.getElementById('navOverlay');
-            const navButtons = document.querySelectorAll('.nav-btn');
-            const tabContents = document.querySelectorAll('.tab-content');
+        function toggleMenu() {
+            var btn = document.getElementById('menuBtn');
+            var overlay = document.getElementById('navOverlay');
+            btn.classList.toggle('open');
+            overlay.classList.toggle('open');
+        }
 
-            // เปิด / ปิด เมนู
-            function toggleMenu() {
-                menuBtn.classList.toggle('open');
-                navOverlay.classList.toggle('open');
+        function showTab(tabId, btnElement) {
+            // ซ่อนทุกหน้า
+            var contents = document.querySelectorAll('.tab-content');
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+
+            // เอาไฮไลท์ออกจากทุกปุ่ม
+            var buttons = document.querySelectorAll('.nav-btn');
+            buttons.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+
+            // แสดงหน้าที่เลือก
+            var target = document.getElementById(tabId);
+            if (target) {
+                target.classList.add('active');
             }
 
-            menuBtn.addEventListener('click', toggleMenu);
+            // ไฮไลท์ปุ่มที่กด
+            if (btnElement) {
+                btnElement.classList.add('active');
+            }
 
-            // การสลับหน้า
-            navButtons.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const targetTabId = this.getAttribute('data-tab');
+            // ปิดแถบเมนู
+            toggleMenu();
+        }
+    </script>
 
-                    // ซ่อนหน้าทั้งหมด
-                    tabContents.forEach(content => {
-                        content.classList.remove('active');
-                    });
-
-                    // เอานำไฮไลท์เมนูออกทั้งหมด
-                    navButtons.forEach(b => {
-                        b.classList.remove('active');
-                    });
-
-                    // แสดงหน้าที่เลือก
-                    const selectedTab = document.getElementById(targetTabId);
-                    if (selectedTab) {
-                        selectedTab.classList.add('active')
+</body>
+</html>
